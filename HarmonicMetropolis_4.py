@@ -76,7 +76,7 @@ def Metropolis(cycleNum):
                 position.append(point)
                 energy.append(initEnergy)
                 
-        if count > cycleNum * 0.0001: #and count < cycleNum * 0.9:
+        if count > cycleNum * 0.01: #and count < cycleNum * 0.9:
             if aCount/upStep < 0.47:
                 #print(aCount/upStep)
                 #print("Auto adjusting step size (acceptance below)")
@@ -116,3 +116,4 @@ def Metropolis(cycleNum):
     return avgEn
     
 #Metropolis(1000000)
+    

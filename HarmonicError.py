@@ -26,8 +26,12 @@ def ErrorMargin(testNum):
     avgErr = errTotal/testNum
     
     return avgErr
-    
-print("The average error was: ", ErrorMargin(10000))
+
+margin = ErrorMargin(10000)
+
+print("The average error was: ", margin)
+print("This gives it a range of ", HM.expResult - margin, " to ", 
+      HM.expResult + margin)
 
 # When starting at 0, T = 400, step size = 11.5 ** -9
 # Average error of 10,000 trials with 10,000 steps: 
@@ -40,7 +44,7 @@ print("The average error was: ", ErrorMargin(10000))
 # 0.5000185820103494
 
 # When starting at 0, T = 11.5 ** =9 with auto adjustments
-# of +/- 0.05 to 11.5 when the acceptance rate fell below 47% 
+# of +/- 0.01 to 11.5 when the acceptance rate fell below 47% 
 # or above 53% the average error of 10,000 trials with 10,000
-# steps: 1.0363384877414086e-22. Range:
-# 2.657663751225859e-21 - 2.864931448774141e-21
+# steps: 9.201802416980447e-23. Range:
+# 2.6692795758301958e-21 - 2.8533156241698045e-21

@@ -10,8 +10,8 @@ Created on Wed Feb  3 09:26:03 2016
 
 import sys
 sys.path.append('/usr/share/pyshared')
-import matplotlib as mpl
-import matplotlib.pyplot as plt
+#import matplotlib as mpl
+#import matplotlib.pyplot as plt
 from scipy import constants as con
 from math import exp
 import random
@@ -86,7 +86,7 @@ def Metropolis(cycleNum):
             elif aCount/upStep > 0.53:
                 #print(aCount/upStep)
                 #print("Auto adjusting step size (acceptance above)")
-                stepBase -= 0.05
+                stepBase -= 0.01
                 downAdjust += 1
                 
         count += 1
@@ -115,5 +115,5 @@ def Metropolis(cycleNum):
     
     return avgEn
     
-#Metropolis(1000000)
+Metropolis(10000)
     

@@ -7,8 +7,8 @@ Created on Fri Jan 29 23:08:44 2016
 
 import sys
 sys.path.append('/usr/share/pyshared')
-import matplotlib as mpl
-import matplotlib.pyplot as plt
+#import matplotlib as mpl
+#import matplotlib.pyplot as plt
 from scipy import constants as con
 from math import exp
 import random

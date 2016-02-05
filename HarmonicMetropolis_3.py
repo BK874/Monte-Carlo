@@ -17,7 +17,7 @@ expResult = 0.5 * con.k * 400
 
 def Harmonic(x):
     a = 1#0 ** -21
-    U = (0.5) * a * (x ** 2)
+    U = (0.5) * a * (x ** 2)    
     
     return U
 

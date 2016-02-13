@@ -102,15 +102,15 @@ def Metropolis(cycleNum):
     avgEn = enTotal/cycleNum
     
 
-    #print("The average position was: ", avgPos)
-    #print("The average energy was: ", avgEn)# * con.k * T)
-    #print("The number of potential steps up was: ", upStep)
-    #print("The number of accepted steps up was: ", aCount)
-    #print("The percent of accepted moves was: ", aCount/upStep)
-    #print("The number of step increases was: ", upAdjust)
-    #print("The number of step decreases was: ", downAdjust)
-    #print("The final step size was: ", stepBase, " ** ", stepMag)
-    #print("The expected energy result is: ", expResult)
+    print("The average position was: ", avgPos)
+    print("The average energy was: ", avgEn)# * con.k * T)
+    print("The number of potential steps up was: ", upStep)
+    print("The number of accepted steps up was: ", aCount)
+    print("The percent of accepted moves was: ", aCount/upStep)
+    print("The number of step increases was: ", upAdjust)
+    print("The number of step decreases was: ", downAdjust)
+    print("The final step size was: ", stepBase, " ** ", stepMag)
+    print("The expected energy result is: ", expResult)
 
     
     return avgEn

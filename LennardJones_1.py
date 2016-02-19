@@ -23,12 +23,14 @@ def LennardJones(r):
     
     V = 4 * epsilon * ((sigma/r) ** 12 - (sigma/r) ** 6)
     
+    #print V
+
     return V
     
     
 def distance(x2, x1, y2, y1, z2, z1):
     d = sqrt((x2 - x1)**2 + (y2 - y1)**2 + (z2 - z1)**2)
-    
+
     return d
     
     
@@ -54,7 +56,7 @@ p3.z= 1
     
     
 def partDist(part1, part2, x):
-    
+
     if x == 1:
         if part1 + part2 == 3:
             d = distance(p2.nx, p1.nx, p2.ny, p1.ny, p2.nz, p1.nz)
@@ -71,7 +73,7 @@ def partDist(part1, part2, x):
         elif part1 + part2 == 5:
             d = distance(p3.x, p2.x, p3.y, p2.y, p3.z, p2.z)
             
-        return d
+    return d
         
 def transition(enDiff):
     T = 100
@@ -101,29 +103,27 @@ def Metropolis(cycleNum):
     dist_1_2 = partDist(1, 2, 2)
     dist_1_3 = partDist(1, 3, 2)
     dist_2_3 = partDist(2, 3, 2)
+    #print dist_1_2
+    #print dist_1_3
+    #print dist_2_3
     
     while count < cycleNum:
         
         # Particle 1 
         en_1_2 = LennardJones(dist_1_2)
         en_1_3 = LennardJones(dist_1_3)
-        
-        p1Co = random.randint(1, 3)
         displace = (random.random() - 0.5) * step
+        #print displace
         
-        if p1Co == 1:
-            p1.nx = p1.x + displace
-            #print(p1.nx)
-        elif p1Co == 2:
-            p1.ny = p1.y + displace
-            #print(p1.ny)
-        elif p1Co == 3:
-            p1.nz = p1.z + displace
-            #print(p1.nz)
+        p1.nx = p1.x + displace
+        #print(p1.nx)
+        p1.ny = p1.y + displace
+        #print(p1.ny)
+        p1.nz = p1.z + displace
+        #print(p1.nz)
         
         ndist_1_2 = partDist(1, 2, 1)
         ndist_1_3 = partDist(1, 3, 1)
-        #print(ndist_1_2)
         
         nen_1_2 = LennardJones(ndist_1_2)
         nen_1_3 = LennardJones(ndist_1_3)
@@ -148,15 +148,11 @@ def Metropolis(cycleNum):
         en_1_2 = LennardJones(dist_1_2)
         en_2_3 = LennardJones(dist_2_3)
         
-        p2Co = random.randint(1, 3)
         displace = (random.random() - 0.5) * step
         
-        if p2Co == 1:
-            p2.nx = p1.x + displace
-        elif p2Co == 2:
-            p2.ny = p2.y + displace
-        elif p2Co == 3:
-            p2.nz = p2.z + displace
+        p2.nx = p1.x + displace
+        p2.ny = p2.y + displace
+        p2.nz = p2.z + displace
             
         ndist_1_2 = partDist(1, 2, 1)
         ndist_2_3 = partDist(2, 3, 1)
@@ -184,15 +180,11 @@ def Metropolis(cycleNum):
         en_1_3 = LennardJones(dist_1_3)
         en_2_3 = LennardJones(dist_2_3)
         
-        p3Co = random.randint(1,3)
         displace = (random.random() - 0.5) * step
         
-        if p3Co == 1:
-            p3.nx = p3.x + displace
-        elif p3Co == 2:
-            p3.ny = p3.y + displace
-        elif p3Co == 3:
-            p3.nz = p3.z + displace
+        p3.nx = p3.x + displace
+        p3.ny = p3.y + displace
+        p3.nz = p3.z + displace
             
         ndist_1_3 = partDist(1, 3, 1)
         ndist_2_3 = partDist(2, 3, 1)
@@ -228,4 +220,4 @@ def Metropolis(cycleNum):
     return avgEn
     
 
-Metropolis(1000)
+Metropolis(100000)

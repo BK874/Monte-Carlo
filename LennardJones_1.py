@@ -21,8 +21,8 @@ def LennardJones(r):
     # r = distance between particles
 
     # Currently keeping variables at 1
-    epsilon = 1
-    sigma = 1
+    epsilon = 121
+    sigma = 3.4
     
     V = 4 * epsilon * ((sigma/r) ** 12 - (sigma/r) ** 6)
     
@@ -95,7 +95,7 @@ def transition(enDiff):
     # Currently treating the boltzmann constant as 1
     # Temperature is set to 100...not sure if ideal    
     
-    T = 100
+    T = 20
     k = 1
     beta = 1/(k * T)
     
@@ -145,13 +145,14 @@ def Metropolis(cycleNum):
         # Particle 1 
         en_1_2 = LennardJones(dist_1_2)
         en_1_3 = LennardJones(dist_1_3)
-        displace = (random.random() - 0.5) * step
-        #print displace
         
+        displace = (random.random() - 0.5) * step                
         p1.nx = p1.x + displace
         #print(p1.nx)
+        displace = (random.random() - 0.5) * step
         p1.ny = p1.y + displace
         #print(p1.ny)
+        displace = (random.random() - 0.5) * step
         p1.nz = p1.z + displace
         #print(p1.nz)
         
@@ -181,10 +182,11 @@ def Metropolis(cycleNum):
         en_1_2 = LennardJones(dist_1_2)
         en_2_3 = LennardJones(dist_2_3)
         
-        displace = (random.random() - 0.5) * step
-        
+        displace = (random.random() - 0.5) * step        
         p2.nx = p1.x + displace
+        displace = (random.random() - 0.5) * step       
         p2.ny = p2.y + displace
+        displace = (random.random() - 0.5) * step       
         p2.nz = p2.z + displace
             
         ndist_1_2 = partDist(1, 2, 1)
@@ -213,10 +215,11 @@ def Metropolis(cycleNum):
         en_1_3 = LennardJones(dist_1_3)
         en_2_3 = LennardJones(dist_2_3)
         
-        displace = (random.random() - 0.5) * step
-        
+        displace = (random.random() - 0.5) * step       
         p3.nx = p3.x + displace
+        displace = (random.random() - 0.5) * step       
         p3.ny = p3.y + displace
+        displace = (random.random() - 0.5) * step       
         p3.nz = p3.z + displace
             
         ndist_1_3 = partDist(1, 3, 1)

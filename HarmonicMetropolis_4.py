@@ -8,8 +8,8 @@ Created on Wed Feb  3 09:26:03 2016
 # Harmonic Metropolis 4 - auto/manual adjust step size
 # while running.
 
-import sys
-sys.path.append('/usr/share/pyshared')
+#import sys
+#sys.path.append('/usr/share/pyshared')
 #import matplotlib as mpl
 #import matplotlib.pyplot as plt
 from scipy import constants as con

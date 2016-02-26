@@ -5,8 +5,8 @@ Created on Wed Feb 10 09:35:39 2016
 @author: brian
 """
 
-import sys
-sys.path.append('/usr/share/pyshared')
+#import sys
+#sys.path.append('/usr/share/pyshared')
 
 # Necessary imports
 from math import exp
@@ -93,7 +93,7 @@ def partDist(part1, part2, x):
 # Function for calculating the probability of accepting new states
 def transition(enDiff):
     # Currently treating the boltzmann constant as 1
-    # Temperature is set to 100...not sure if ideal    
+    # Temperature is set to 20    
     
     T = 20
     k = 1

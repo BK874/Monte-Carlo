@@ -1,7 +1,6 @@
 # Monte-Carlo
 
 Used to store programs for my First Experiences in Research project:
-	-HarmonicMetropolis_3 is my semi-completed version of the Metropolis algorithm for the Harmonic Oscillator
-	-HarmonicMetropolis_4 is a modified version of 3 - it auto-adjusts the step size based on the percent of upward moves accepted
-	-HarmonicError is used to calculate and compare the margin of error for the two Harmonic programs. The imported file is all that needs changing
-	-MorseMetropolis is an implementation for the Morse potential energy function - still a work in progress
+     -Currently finishing my Lennard Jones 3-particle system before changing it to a 13-particle system.
+     -Also learning VMD for animating my simulations. 
+     -Eventually I will begin work on extending the simulations to 4D.

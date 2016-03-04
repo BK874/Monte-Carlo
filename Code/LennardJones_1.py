@@ -89,15 +89,20 @@ def partDist(part1, part2, x):
             
     return d
 
+
+aCount = 0.0
+upStep = 0.0
         
 # Function for calculating the probability of accepting new states
 def transition(enDiff):
     # Currently treating the boltzmann constant as 1
     # Temperature is set to 20    
     
-    T = 20
+    T = 20.0
     k = 1
     beta = 1/(k * T)
+    global aCount
+    global upStep
     
     if enDiff <= 0:
         return True
@@ -105,8 +110,11 @@ def transition(enDiff):
     else:
         R = random.random()
         W = exp(-beta * enDiff)
+        print("W: ", W)
+        upStep += 1
         
         if W > R:
+            aCount += 1
             return True
             
         else:
@@ -118,8 +126,8 @@ def Metropolis(cycleNum):
     # The parameter is the number of cycles it will run    
     
     # Declare and initialize the cycle counter and the step size
-    count = 0
-    step = 11.5 ** -9 # A guess based off of my working Harmonic code
+    count = 0.0
+    step = 0.25 #11.5 ** -9 # A guess based off of my working Harmonic code
     
     # A list for averaging the energy
     energy = []
@@ -148,13 +156,12 @@ def Metropolis(cycleNum):
         
         displace = (random.random() - 0.5) * step                
         p1.nx = p1.x + displace
-        #print(p1.nx)
+        
         displace = (random.random() - 0.5) * step
         p1.ny = p1.y + displace
-        #print(p1.ny)
+    
         displace = (random.random() - 0.5) * step
         p1.nz = p1.z + displace
-        #print(p1.nz)
         
         ndist_1_2 = partDist(1, 2, 1)
         ndist_1_3 = partDist(1, 3, 1)
@@ -162,21 +169,21 @@ def Metropolis(cycleNum):
         nen_1_2 = LennardJones(ndist_1_2)
         nen_1_3 = LennardJones(ndist_1_3)
         
-        enDiff = (nen_1_2 - en_1_2) + (nen_1_3 - en_1_3)
+        enDiff_1 = (nen_1_2 - en_1_2) + (nen_1_3 - en_1_3)
         
-        if transition(enDiff) == True:
-            dist_1_2 = ndist_1_2
-            dist_1_3 = ndist_1_3
-            p1.x = p1.nx
-            p1.y = p1.ny
-            p1.z = p1.nz
-            energy.extend([nen_1_2, nen_1_3])
+#        if transition(enDiff) == True:
+#            dist_1_2 = ndist_1_2
+#            dist_1_3 = ndist_1_3
+#            p1.x = p1.nx
+#            p1.y = p1.ny
+#            p1.z = p1.nz
+#            energy.extend([nen_1_2, nen_1_3])
             
-        else:
-            energy.extend([en_1_2, en_1_3])
-            p1.nx = p1.x
-            p1.ny = p1.y
-            p1.nz = p1.z
+#        else:
+#            energy.extend([en_1_2, en_1_3])
+#            p1.nx = p1.x
+#            p1.ny = p1.y
+#            p1.nz = p1.z
             
         # Particle 2 
         en_1_2 = LennardJones(dist_1_2)
@@ -195,21 +202,21 @@ def Metropolis(cycleNum):
         nen_1_2 = LennardJones(ndist_1_2)
         nen_2_3 = LennardJones(ndist_2_3)
         
-        enDiff = (nen_1_2 - en_1_2) + (nen_2_3 - en_2_3)
+        enDiff_2 = (nen_1_2 - en_1_2) + (nen_2_3 - en_2_3)
         
-        if transition(enDiff) == True:
-            dist_1_2 = ndist_1_2
-            dist_2_3 = ndist_2_3
-            p2.x = p2.nx
-            p2.y = p2.ny
-            p2.z = p3.nz
-            energy.extend([nen_1_2, nen_2_3])
+#        if transition(enDiff) == True:
+#            dist_1_2 = ndist_1_2
+#            dist_2_3 = ndist_2_3
+#            p2.x = p2.nx
+#            p2.y = p2.ny
+#            p2.z = p3.nz
+#            energy.extend([nen_1_2, nen_2_3])
             
-        else:
-            energy.extend([en_1_2, en_2_3])
-            p2.nx = p2.x
-            p2.ny = p2.y
-            p2.nz = p2.z
+ #       else:
+#            energy.extend([en_1_2, en_2_3])
+#            p2.nx = p2.x
+#            p2.ny = p2.y
+#            p2.nz = p2.z
             
         # Particle 3
         en_1_3 = LennardJones(dist_1_3)
@@ -228,9 +235,27 @@ def Metropolis(cycleNum):
         nen_1_3 = LennardJones(ndist_1_3)
         nen_2_3 = LennardJones(ndist_2_3)
         
-        enDiff = (nen_1_3 - en_1_3) + (nen_2_3 - en_2_3)
+        enDiff_3 = (nen_1_3 - en_1_3) + (nen_2_3 - en_2_3)
+        
+        enDiff = enDiff_1 + enDiff_2 + enDiff_3        
+
         
         if transition(enDiff) == True:
+
+            dist_1_2 = ndist_1_2
+            dist_1_3 = ndist_1_3
+            p1.x = p1.nx
+            p1.y = p1.ny
+            p1.z = p1.nz
+            energy.extend([nen_1_2, nen_1_3])            
+
+            dist_1_2 = ndist_1_2
+            dist_2_3 = ndist_2_3
+            p2.x = p2.nx
+            p2.y = p2.ny
+            p2.z = p3.nz
+            energy.extend([nen_1_2, nen_2_3])
+            
             dist_1_3 = ndist_1_3
             dist_2_3 = ndist_2_3
             p3.x = p3.nx
@@ -239,6 +264,17 @@ def Metropolis(cycleNum):
             energy.extend([nen_1_3, nen_2_3])
             
         else:
+            
+            energy.extend([en_1_2, en_1_3])
+            p1.nx = p1.x
+            p1.ny = p1.y
+            p1.nz = p1.z
+
+            energy.extend([en_1_2, en_2_3])
+            p2.nx = p2.x
+            p2.ny = p2.y
+            p2.nz = p2.z            
+            
             energy.extend([en_1_3, en_2_3])
             p3.nx = p3.x
             p3.ny = p3.y
@@ -252,8 +288,8 @@ def Metropolis(cycleNum):
         enTotal += en
     avgEn = enTotal/cycleNum
     print("The average energy was: ", avgEn)
-    
+    print("The number of accepted moves was: ", aCount)
     return avgEn
     
 
-Metropolis(100000)
+Metropolis(100000.0)

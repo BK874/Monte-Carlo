@@ -70,7 +70,7 @@ def Metropolis(cycleNum):
                 point = newPoint
                 position.append(point)
                 energy.append(newEnergy)
-                aCount += 1                
+                aCount += 1
                 
             else:
                 position.append(point)

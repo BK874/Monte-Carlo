@@ -90,8 +90,6 @@ def partDist(part1, part2, x):
     return d
 
 
-aCount = 0.0
-upStep = 0.0
         
 # Function for calculating the probability of accepting new states
 def transition(enDiff):
@@ -99,10 +97,8 @@ def transition(enDiff):
     # Temperature is set to 20    
     
     T = 20.0
-    k = 1
+    k = 1.0
     beta = 1/(k * T)
-    global aCount
-    global upStep
     
     if enDiff <= 0:
         return True
@@ -111,10 +107,8 @@ def transition(enDiff):
         R = random.random()
         W = exp(-beta * enDiff)
         print("W: ", W)
-        upStep += 1
         
         if W > R:
-            aCount += 1
             return True
             
         else:
@@ -127,7 +121,8 @@ def Metropolis(cycleNum):
     
     # Declare and initialize the cycle counter and the step size
     count = 0.0
-    step = 0.25 #11.5 ** -9 # A guess based off of my working Harmonic code
+    aCount = 0
+    step = 0.249 #11.5 ** -9 # A guess based off of my working Harmonic code
     
     # A list for averaging the energy
     energy = []
@@ -262,6 +257,8 @@ def Metropolis(cycleNum):
             p3.y = p3.ny
             p3.z = p3.nz
             energy.extend([nen_1_3, nen_2_3])
+            
+            aCount += 1
             
         else:
             

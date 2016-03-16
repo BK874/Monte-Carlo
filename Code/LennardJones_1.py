@@ -290,3 +290,6 @@ def Metropolis(cycleNum):
     
 
 Metropolis(100000.0)
+
+# Create list of particles and use for loop/indexing to create the particles i.e. for j < 13, particles[j] = foo
+# See Prof. Laboon's StaticDemo example (assuming he updated it)

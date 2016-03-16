@@ -21,7 +21,7 @@ def LennardJones(r):
     # r = distance between particles
 
     # Currently keeping variables at 1
-    epsilon = 121
+    epsilon = 121.0
     sigma = 3.4
     
     V = 4 * epsilon * ((sigma/r) ** 12 - (sigma/r) ** 6)
@@ -106,7 +106,7 @@ def transition(enDiff):
     else:
         R = random.random()
         W = exp(-beta * enDiff)
-        print("W: ", W)
+        #print("W: ", W)
         
         if W > R:
             return True
@@ -166,19 +166,19 @@ def Metropolis(cycleNum):
         
         enDiff_1 = (nen_1_2 - en_1_2) + (nen_1_3 - en_1_3)
         
-#        if transition(enDiff) == True:
-#            dist_1_2 = ndist_1_2
-#            dist_1_3 = ndist_1_3
-#            p1.x = p1.nx
-#            p1.y = p1.ny
-#            p1.z = p1.nz
-#            energy.extend([nen_1_2, nen_1_3])
+        if transition(enDiff_1) == True:
+            dist_1_2 = ndist_1_2
+            dist_1_3 = ndist_1_3
+            p1.x = p1.nx
+            p1.y = p1.ny
+            p1.z = p1.nz
+            energy.extend([nen_1_2, nen_1_3])
             
-#        else:
-#            energy.extend([en_1_2, en_1_3])
-#            p1.nx = p1.x
-#            p1.ny = p1.y
-#            p1.nz = p1.z
+        else:
+            energy.extend([en_1_2, en_1_3])
+            p1.nx = p1.x
+            p1.ny = p1.y
+            p1.nz = p1.z
             
         # Particle 2 
         en_1_2 = LennardJones(dist_1_2)
@@ -199,19 +199,19 @@ def Metropolis(cycleNum):
         
         enDiff_2 = (nen_1_2 - en_1_2) + (nen_2_3 - en_2_3)
         
-#        if transition(enDiff) == True:
-#            dist_1_2 = ndist_1_2
-#            dist_2_3 = ndist_2_3
-#            p2.x = p2.nx
-#            p2.y = p2.ny
-#            p2.z = p3.nz
-#            energy.extend([nen_1_2, nen_2_3])
+        if transition(enDiff_2) == True:
+            dist_1_2 = ndist_1_2
+            dist_2_3 = ndist_2_3
+            p2.x = p2.nx
+            p2.y = p2.ny
+            p2.z = p3.nz
+            energy.extend([nen_1_2, nen_2_3])
             
- #       else:
-#            energy.extend([en_1_2, en_2_3])
-#            p2.nx = p2.x
-#            p2.ny = p2.y
-#            p2.nz = p2.z
+        else:
+            energy.extend([en_1_2, en_2_3])
+            p2.nx = p2.x
+            p2.ny = p2.y
+            p2.nz = p2.z
             
         # Particle 3
         en_1_3 = LennardJones(dist_1_3)
@@ -237,19 +237,19 @@ def Metropolis(cycleNum):
         
         if transition(enDiff) == True:
 
-            dist_1_2 = ndist_1_2
-            dist_1_3 = ndist_1_3
-            p1.x = p1.nx
-            p1.y = p1.ny
-            p1.z = p1.nz
-            energy.extend([nen_1_2, nen_1_3])            
+#            dist_1_2 = ndist_1_2
+#            dist_1_3 = ndist_1_3
+#            p1.x = p1.nx
+#            p1.y = p1.ny
+#            p1.z = p1.nz
+#            energy.extend([nen_1_2, nen_1_3])            
 
-            dist_1_2 = ndist_1_2
-            dist_2_3 = ndist_2_3
-            p2.x = p2.nx
-            p2.y = p2.ny
-            p2.z = p3.nz
-            energy.extend([nen_1_2, nen_2_3])
+#            dist_1_2 = ndist_1_2
+#            dist_2_3 = ndist_2_3
+#            p2.x = p2.nx
+#            p2.y = p2.ny
+#            p2.z = p3.nz
+#            energy.extend([nen_1_2, nen_2_3])
             
             dist_1_3 = ndist_1_3
             dist_2_3 = ndist_2_3
@@ -262,15 +262,15 @@ def Metropolis(cycleNum):
             
         else:
             
-            energy.extend([en_1_2, en_1_3])
-            p1.nx = p1.x
-            p1.ny = p1.y
-            p1.nz = p1.z
+#            energy.extend([en_1_2, en_1_3])
+#            p1.nx = p1.x
+#            p1.ny = p1.y
+#            p1.nz = p1.z
 
-            energy.extend([en_1_2, en_2_3])
-            p2.nx = p2.x
-            p2.ny = p2.y
-            p2.nz = p2.z            
+#            energy.extend([en_1_2, en_2_3])
+#            p2.nx = p2.x
+#            p2.ny = p2.y
+#            p2.nz = p2.z            
             
             energy.extend([en_1_3, en_2_3])
             p3.nx = p3.x

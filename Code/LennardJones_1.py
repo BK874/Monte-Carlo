@@ -20,7 +20,6 @@ def LennardJones(r):
     # sigma = finite distance at which the inter-particle potential is zero
     # r = distance between particles
 
-    # Currently keeping variables at 1
     epsilon = 121.0
     sigma = 3.4
     
@@ -67,7 +66,7 @@ p3.z= 1
 # added    
 def partDist(part1, part2, x):
     
-    # Accepts three parameters: the numbes of the two particles and 1 or 2
+    # Accepts three parameters: the numbers of the two particles and 1 or 2
     # -> 1 means the distance is calculated using the new coordinates
     # -> 2 means the distance is calculated using the old coordinates
 

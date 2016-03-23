@@ -22,14 +22,14 @@ def LJ(r):
     V = 4 * epsilon * ((sigma/r) ** 12 - (sigma/r) ** 6)    
     return V
 
-    
+# Distance Function    
 def distance(coord1, coord2):        
     d = sqrt((coord2[0] - coord1[0]) ** 2 + (coord2[1] - coord1[1]) ** 2 + 
     (coord2[2] - coord1[2]) ** 2)
     
     return d
     
-    
+# Movement Function    
 def move(step, coord):
     mX = coord[0] + (random.random() - 0.5) * step
     mY = coord[1] + (random.random() - 0.5) * step
@@ -37,7 +37,7 @@ def move(step, coord):
     
     return [mX, mY, mZ]
 
-    
+# Transition Function    
 def transition(enDiff):
     # Currently treating Boltzmann constant as 1
 
@@ -48,7 +48,7 @@ def transition(enDiff):
     #print("enDiff: ", enDiff)
     
     if enDiff <= 0:
-        print("Down!")
+        #print("Down!")
         return True
         
     else:
@@ -58,13 +58,15 @@ def transition(enDiff):
         #print("R: ", R)
         
         if W > R:
-            print("Accepted up!")
+            #print("Accepted up!")
             return True
         else:
-            print("No!")
+            #print("No!")
             return False
     
-        
+# Particle Class
+# Upon creation is assigned a number
+# Also contains lists for its current position and possible new position       
 class Particle:
     def __init__(self, num):
         self.num = num
@@ -84,7 +86,7 @@ p3 = Particle(3)
 p3.pos[2] = 1.0
 p3.nPos[2]=1.0
 
-
+# Metropolis function
 def Metropolis(cycleNum):
     
     count = 0
@@ -126,7 +128,7 @@ def Metropolis(cycleNum):
         enDiff = nEn - en
     
         t = transition(enDiff)
-    
+
         if t == True:
             p1.pos = p1.nPos
             p2.pos = p2.nPos
@@ -153,4 +155,7 @@ def Metropolis(cycleNum):
     return avgEn
     
 
-Metropolis(100.0)
+Metropolis(100000.0)
+# Create list of particles and use for loop/indexing to create the particles 
+#i.e. for j < 13, particles[j] = foo
+# See Prof. Laboon's StaticDemo example (assuming he updated it)

@@ -150,8 +150,8 @@ def Metropolis(cycleNum):
         enTotal += en
     avgEn = enTotal/cycleNum
     print("The average energy was: ", avgEn)
-    print("The number of accepted moves was: ", aCount)
-    print("The ratio of acceptance was: ", aCount/cycleNum)
+    #print("The number of accepted moves was: ", aCount)
+    #print("The ratio of acceptance was: ", aCount/cycleNum)
     return avgEn
     
 

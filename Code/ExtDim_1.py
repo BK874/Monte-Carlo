@@ -26,8 +26,8 @@ def gradLJ(r):
 
     epsilon = 121.0
     sigma = 3.4
-    
-    gV = 12 * epsilon * ((sigma/r) ** 6 - (sigma/r) ** 12) # *r(vector)/(r **2)
+
+    gV = 24 * epsilon * ((sigma/r) ** 6 - 2 * (sigma/r) ** 12) * 1/r
     return gV
     
     
@@ -38,9 +38,9 @@ def distance3(coord1, coord2):
     return d
     
 
-def distance4(coord1, coord2):        
+def distance4(coord1, coord2):       
     d = sqrt((coord2[0] - coord1[0]) ** 2 + (coord2[1] - coord1[1]) ** 2 + 
-    (coord2[2] - coord1[2]) ** 2 + (coord2[3] - coord1[3] ** 2))
+    (coord2[2] - coord1[2]) ** 2 + (coord2[3] - coord1[3]) ** 2)
     
     return d
     
@@ -88,50 +88,97 @@ class Particle:
         self.nPos = [0,0,0]
         
 partList = []
+numPart = 13
 
-for i in range(13):
+for i in range(numPart):
     x = Particle(i+1)
     partList.append(x)    
     
-for j in xrange(0, len(partList)):
+for j in xrange(0, numPart):
     partList[j].pos.append(0)
     partList[j].nPos.append(0)
-    partList[j].pos[0] = j+1
-    print("Particle ", j+1, ":", partList[j].pos)    
+    partList[j].pos[(partList[j].num-1)%3] = j+1
+    #print("Particle ", j+1, ":", partList[j].pos)    
 
 
-def gradientDescent(x0):
+def gradientDescent(x0, numCycle):
     # Current non-stochastic method of minimization
 
     L = 0.1
+    gdCount = 0
     
-    x1 = x0 - L * gradLJ(x0)
+    while gdCount < numCycle:
     
-    return x1
+        x0 = x0 - L * gradLJ(x0)
+    
+    return x0
     
     
-def Walk(cycleNum):
+def Walk(cycleNum): #add minimum parameter
     
     count = 0
-    #step = 11.5 ** -9
-    
+    aCount = 0
+    step = 3.4 # Distance parameter for LJ, otherwise: 11.5 ** -9
     energy = []
     
+    initDist = {}
+    currDist = {}
+
+    
     while count < cycleNum:
-        initDist = {}        
                 
         for i in partList:
-            l = range(0, len(partList))
-            l = l[:partList.index(i)] + l[partList.index(i)+1:]
-            #print("L: ", l)
-            for j in l:
-                initDist[str(i.num) + " and " + str(partList[j].num)] = (distance4(i.pos, partList[j].pos))
-                #print("Distance between ", partList.index(i)+1, "and ",
-                j+1)
-                #print(initDist[str(i.num) + " and " + str(partList[j].num)])
-                
+            for j in xrange(i.num+1, numPart+1):
+                #print("Part_1 pos: ",i.pos, "Part_2 pos: ",partList[j-1].pos)
+                initDist[str(i.num) + " and " + str(j)] = distance4(i.pos, partList[j-1].pos)
+                #print("Distance between ", partList.index(i)+1, "and ", j)
+                #print(initDist[str(i.num) + " and " + str(j)])
+        
         en = 0
-        for 
+        for k in xrange(1,numPart+1):
+            for l in xrange(k+1, numPart+1):
+                #print(k, " and ", l)
+                en += LJ(initDist[str(k) + " and " + str(l)])
+            
+        if count == 0:
+            energy.append(en)
+        
+        for m in partList:
+            m.nPos = move4(step, m.pos)
+            for n in xrange(m.num+1, numPart+1):
+                currDist[str(m.num) + " and " + str(n)] = distance4(m.pos, partList[n-1].pos)
+                
+        nEn = 0
+        for p in xrange(1, numPart+1):
+            for q in xrange(k+1, numPart+1):
+                nEn += LJ(currDist[str(p) + " and " + str(q)])
+                
+        enDiff = nEn - en
+        
+        t = transition(enDiff)
+
+        if t == True:
+            for r in partList:
+                r.pos = r.nPos
+            energy.append(nEn)
+            aCount += 1
+            
+        else:
+            for s in partList:
+                s.nPos = s.pos
+            energy.append(en)
+                         
+             
+        count += 1
+    
+    enTotal = 0
+    for en in energy:
+        enTotal += en
+    avgEn = enTotal/cycleNum
+    print("The average energy was: ", avgEn)
+    #print("The number of accepted moves was: ", aCount)
+    #print("The ratio of acceptance was: ", aCount/cycleNum)
+    return avgEn    
     
     return 
 

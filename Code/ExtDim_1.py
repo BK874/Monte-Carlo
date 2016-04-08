@@ -221,9 +221,24 @@ def width(numDim):
             
     return w
     
-def compression(min3d):
+def gradWidth(numDim):
     
+    w = 0
+    
+    for i in partList:
+        for n in xrange(4, numDim):
+            w += (i.pos[n-1]
+    
+    return 2 * w    
+    
+def compression(r, min3d):
         
+    epsilon = 121.0
+    sigma = 3.4
+
+    gradComp = (2 * ((4 * epsilon * ((sigma/r) ** 12 - (sigma/r) ** 6) - min3d) * 
+    (24 * epsilon * ((sigma/r) ** 6 - 2 * (sigma/r) ** 12) * 1/r)) + gradWidth(4)
+    
     
     
      

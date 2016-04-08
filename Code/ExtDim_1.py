@@ -28,6 +28,7 @@ def gradLJ(r):
     sigma = 3.4
 
     gV = 24 * epsilon * ((sigma/r) ** 6 - 2 * (sigma/r) ** 12) * 1/r
+    print(gV)
     return gV
     
     
@@ -88,18 +89,14 @@ class Particle:
         self.nPos = [0,0,0]
         
 partList = []
-numPart = 13
+numPart = 16
 
 for i in range(numPart):
     x = Particle(i+1)
-    partList.append(x)    
+    partList.append(x)
+    partList[i].pos[(partList[i].num-1)%3] = i+1    
+    #print("Particle ", i+1, ":", partList[i].pos)
     
-for j in xrange(0, numPart):
-    partList[j].pos.append(0)
-    partList[j].nPos.append(0)
-    partList[j].pos[(partList[j].num-1)%3] = j+1
-    #print("Particle ", j+1, ":", partList[j].pos)    
-
 
 def gradientDescent(x0, numCycle):
     # Current non-stochastic method of minimization
@@ -110,19 +107,52 @@ def gradientDescent(x0, numCycle):
     while gdCount < numCycle:
     
         x0 = x0 - L * gradLJ(x0)
+        print(x0)
+        gdCount += 1
     
     return x0
     
+
+def walk3(cycleNum):
     
-def Walk(cycleNum): #add minimum parameter
+    en = 0
+    energy = []
+    initDist = {}
+    currDist = {}
+    
+    for i in partList:
+        for j in xrange(i.num+1, numPart+1):
+            initDist[str(i.num) + " and " + str(j)] = distance3(i.pos, partList[j-1].pos)
+        
+    for m in partList:
+        for n in xrange(m.num+1, numPart+1):
+            currDist[str(m.num) + " and " + str(n)] = gradientDescent(initDist[str(m.num) + " and " + str(n)], 100)
+    
+    for p in partList:
+        for q in xrange(m.num+1, numPart+1):
+            en = LJ(currDist[str(p.num) + " and " + str(q)])
+            energy.append(en)
+            
+    enTotal = 0
+    for e in energy:
+        enTotal += e
+        
+    return enTotal
+    
+    
+def extWalk(cycleNum): #add minimum parameter
     
     count = 0
     aCount = 0
     step = 3.4 # Distance parameter for LJ, otherwise: 11.5 ** -9
-    energy = []
+    #energy = []
     
     initDist = {}
     currDist = {}
+    
+    for j in xrange(0, numPart):
+        partList[j].pos.append(0)
+        partList[j].nPos.append(0)
 
     
     while count < cycleNum:
@@ -140,8 +170,8 @@ def Walk(cycleNum): #add minimum parameter
                 #print(k, " and ", l)
                 en += LJ(initDist[str(k) + " and " + str(l)])
             
-        if count == 0:
-            energy.append(en)
+        #if count == 0:
+            #energy.append(en)
         
         for m in partList:
             m.nPos = move4(step, m.pos)
@@ -160,26 +190,42 @@ def Walk(cycleNum): #add minimum parameter
         if t == True:
             for r in partList:
                 r.pos = r.nPos
-            energy.append(nEn)
+            #energy.append(nEn)
+            en = nEn
             aCount += 1
             
         else:
             for s in partList:
                 s.nPos = s.pos
-            energy.append(en)
+            #energy.append(en)
                          
              
         count += 1
     
-    enTotal = 0
-    for en in energy:
-        enTotal += en
-    avgEn = enTotal/cycleNum
-    print("The average energy was: ", avgEn)
+    #enTotal = 0
+    #for en in energy:
+        #enTotal += en
+    #avgEn = enTotal/cycleNum
+    #print("The average energy was: ", avgEn)
     #print("The number of accepted moves was: ", aCount)
     #print("The ratio of acceptance was: ", aCount/cycleNum)
-    return avgEn    
+    return en 
     
-    return 
-
-Walk(100)
+def width(numDim):
+    
+    w = 0    
+    
+    for i in partList:
+        for n in xrange(4, numDim):
+            w += (i.pos[n-1]) ** 2
+            
+    return w
+    
+def compression(min3d):
+    
+        
+    
+    
+     
+print(extWalk(100))
+#print(gradientDescent(100, 100))

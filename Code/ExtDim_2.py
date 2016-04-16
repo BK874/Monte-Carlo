@@ -213,7 +213,7 @@ def walk3(cycleNum):
                 
         for m in partList:
             for n in xrange(m.num+1, numPart+1):
-                currDist[str(m.num) + " and " + str(n)] = gradientDescent([0,0,0], initDist[str(m.num) + " and " + str(n)], 100)
+                currDist[str(m.num) + " and " + str(n)] = gradientDescent([0,0,0], initDist[str(m.num) + " and " + str(n)], 1000)
         count += 1
         
     for p in partList:

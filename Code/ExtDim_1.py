@@ -190,6 +190,7 @@ def extWalk(cycleNum): #add minimum parameter
         if t == True:
             for r in partList:
                 r.pos = r.nPos
+            #not proper - reference
             #energy.append(nEn)
             en = nEn
             aCount += 1
@@ -207,7 +208,7 @@ def extWalk(cycleNum): #add minimum parameter
         #enTotal += en
     #avgEn = enTotal/cycleNum
     #print("The average energy was: ", avgEn)
-    #print("The number of accepted moves was: ", aCount)
+    print("The number of accepted moves was: ", aCount)
     #print("The ratio of acceptance was: ", aCount/cycleNum)
     return en 
     

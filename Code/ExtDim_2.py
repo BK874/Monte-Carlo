@@ -16,6 +16,9 @@ def LJ(coord1, coord2):
     # r = distance between particles    
     
     r = distance3(coord1, coord2)
+    if r == 0:
+        return 0    
+    
     epsilon = 121.0
     sigma = 3.4    
     
@@ -27,6 +30,9 @@ def LJ2(r):
     # epsilon = depth of the potential well
     # sigma = finite distance at which the inter-particle potential is zero
     # r = distance between particles    
+    
+    if r == 0:
+        return 0
     
     epsilon = 121.0
     sigma = 3.4    
@@ -170,21 +176,15 @@ class Particle:
     def __init__(self, num):
         self.num = num
         self.pos = [0,0,0]
+        self.tempPos = [0,0,0]
         self.nPos = [0,0,0]
         self.pos3 = [0,0,0]
         
-partList = []
-numPart = 16
-
-for i in range(numPart):
-    x = Particle(i+1)
-    partList.append(x)
-    partList[i].pos[(partList[i].num-1)%3] = i+1    
-    #print("Particle ", i+1, ":", partList[i].pos)
     
 def extension():
-    for j in xrange(0, numPart):
+    for j in range(numPart):
         partList[j].pos.append(0)
+        partList[j].tempPos.append(0)
         partList[j].nPos.append(0)
         
 def set3d():
@@ -196,17 +196,24 @@ def set3d():
 def perpVect(step, v):    
     
     r = 0.1 * step
-    
-    if v[1] == 0 and v[2] == 0:
-        if v[0] == 0 and v[3] == 0:
+    vTemp = list(v)
+    v3 = v.pop(3)
+    v4 = []
+    if vTemp[1] == 0 and vTemp[2] == 0:
+        if vTemp[0] == 0 and vTemp[3]:
             raise ValueError('zero vector')
         else:
-            return np.cross(v, [0, r, 0, 0])
-            
-    c = random.randint(0, 3)
-    nV = [0, 0, 0, 0]
+            v4 = list(np.cross(v, [0, r, 0]))
+            v4.append(v3)
+            print(v4)
+            return v4
+    c = random.randint(0, 2)
+    nV = [0, 0, 0]
     nV[c] = r        
-    return np.cross(v, c)
+    v4 = list(np.cross(v, nV))
+    print(v4)
+    v4.append(v3)
+    return v4
     
 
 def gradientDescent(coord1, coord2, numCycle):
@@ -284,19 +291,33 @@ def extWalk(cycleNum):
         en = 0
         for k in xrange(1,numPart+1):
             for l in xrange(k+1, numPart+1):
+                #print(initDist[str(k) + " and " + str(l)])
                 en += LJ2(initDist[str(k) + " and " + str(l)])
                 
+        for r in partList:
+            r.tempPos = list(r.pos)                
+                
         for m in partList:
-            m.nPos = list(perpVect(step, m.pos))
+            print(m.pos)
+            pV = list(perpVect(step, m.pos))
+            print(pV)
+            print(m.nPos)
+            for s in range(4):
+                m.nPos[s] = m.pos[s] + pV[s]               
+                print(s)
+            #m.nPos = [m.pos[i] + pV[i] for i in range(len(m.pos))]
+            print(m.nPos)
             for n in xrange(m.num+1, numPart+1):
-                currDist[str(m.num) + " and " + str(n)] = distance4(m.pos, partList[n-1].pos)
+                currDist[str(m.num) + " and " + str(n)] = distance4(m.nPos, partList[n-1].tempPos)
+            m.tempPos = list(m.nPos)
                 
         nEn = 0
         for p in xrange(1, numPart+1):
             for q in xrange(k+1, numPart+1):
                 nEn += LJ2(currDist[str(p) + " and " + str(q)])
-                
-        enDiff = nEn - en                
+        
+        print("En ", en, "nEn", nEn)
+        enDiff = nEn - en              
                 
         t = transition(enDiff)
 
@@ -313,11 +334,30 @@ def extWalk(cycleNum):
                          
              
         count += 1
+        print(count)
+        #print(aCount)
     
     return en
     
+
+partList = []
+numPart = 16
+
+for i in range(numPart):
+    x = Particle(i+1)
+    partList.append(x)
+    partList[i].pos[(partList[i].num-1)%3] = i+1    
+    #print("Particle ", i+1, ":", partList[i].pos)
 
 walk3(100)
 set3d()
 extension()
 print(extWalk(100))
+
+
+# Particle positions not being changed after steepest descent function called
+# - only being stored in dictionaries, not actually changed.
+# Need to write compression function
+# Find out why line 306 keeps causing index out of range
+# ...why does print(m.nPos) and print(m.pos) print the same thing?
+

@@ -9,6 +9,7 @@ from math import exp, sqrt
 import numpy as np
 import random
 import time
+#from LennardJones_3 import Metropolis
 
 def LJ(coord1, coord2):
     # v = 4 * epsilon * ((sigma/r)^12 - (sigma/r)^6)
@@ -75,6 +76,13 @@ def distance3(coord1, coord2):
     (coord2[2] - coord1[2]) ** 2)
     
     return d
+    
+def move3(step, coord):
+    mX = coord[0] + (random.random() - 0.5) * step
+    mY = coord[1] + (random.random() - 0.5) * step
+    mZ = coord[2] + (random.random() - 0.5) * step
+    
+    return [mX, mY, mZ]
     
 
 def deriv4DistX(coord1, coord2):
@@ -234,22 +242,13 @@ def find3DEnergy():
             e0 += LJ2(dist)
     return e0
 
-def gradFX():
-    
+def gradFX():    
     e0 = find3DEnergy()
-    gF = []
+    gF = [] 
+    return gF
     
-    return
-        
-
 def compression():
-    
     success = False
-    
-    
-        
-                
-    
     return success
     
 
@@ -395,11 +394,12 @@ for i in range(numPart):
     partList[i].pos[(partList[i].num-1)%3] = i+1    
     #print("Particle ", i+1, ":", partList[i].pos)
 
-count = 10
+count = 1
 cycleNum = 0
 
 
 walk3(100)
+#Metropolis(10000)
 while cycleNum < count:
 
         set3d()
@@ -407,9 +407,11 @@ while cycleNum < count:
         extWalk(100)
         rExtension()
         print(walk3(100))
+        #print(Metropolis(10000))
         
         cycleNum += 1
 
 print("--- %s seconds ---" % (time.time() - start_time))
+print("Number of Particles: ", numPart)
 
 # Need to write compression function

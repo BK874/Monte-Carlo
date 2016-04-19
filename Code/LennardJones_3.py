@@ -135,7 +135,7 @@ def Metropolis(cycleNum): #add minimum parameter
 start_time = time.time()
 
 partList = []
-numPart = 16
+numPart = 50
 
 for i in range(numPart):
     x = Particle(i+1)
@@ -144,4 +144,4 @@ for i in range(numPart):
     #print("Particle ", i+1, ":", partList[i].pos)
         
 print(Metropolis(10000))
-print("--- %s seconds ---" % (time.time() - start_time))
+print("---Metropolis: %s seconds ---" % (time.time() - start_time))

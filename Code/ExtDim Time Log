@@ -1,0 +1,536 @@
+Time log for ExtDim:
+	16 Particles w/Metropolis:
+	---Metropolis: 3.74561285973 seconds ---
+	---ExtWalk: 0.513249874115 seconds ---
+	82750.8424706
+	---ExtWalk: 0.508766889572 seconds ---
+	82750.84728
+	---ExtWalk: 0.517977952957 seconds ---
+	82750.8485961
+	---ExtWalk: 0.504812955856 seconds ---
+	82750.8466571
+	---ExtWalk: 0.499093055725 seconds ---
+	82750.8496235
+	---ExtWalk: 0.510984897614 seconds ---
+	82750.8467933
+	---ExtWalk: 0.507546186447 seconds ---
+	82750.840798
+	---ExtWalk: 0.50642991066 seconds ---
+	82750.8424303
+	---ExtWalk: 0.503983974457 seconds ---
+	82750.840733
+	---ExtWalk: 0.624764204025 seconds ---
+	82750.8341166
+	--- 48.8196439743 seconds ---
+
+	17 Particles w/Metropolis
+	---Metropolis: 3.78515791893 seconds ---
+	---ExtWalk: 0.575298070908 seconds ---
+	82750.8384656
+	---ExtWalk: 0.580852031708 seconds ---
+	82750.8373721
+	---ExtWalk: 0.575887918472 seconds ---
+	82750.828498
+	---ExtWalk: 0.561672925949 seconds ---
+	82750.827128
+	---ExtWalk: 0.595553159714 seconds ---
+	82750.8300129
+	---ExtWalk: 0.560649871826 seconds ---
+	82750.8352541
+	---ExtWalk: 0.554933071136 seconds ---
+	82750.8286894
+	---ExtWalk: 0.563692092896 seconds ---
+	82750.8373333
+	---ExtWalk: 0.580603122711 seconds ---
+	82750.8377108
+	---ExtWalk: 0.576282024384 seconds ---
+	82750.8362914
+	--- 47.1871449947 seconds ---
+
+	18 Particles w/Metropolis:
+	---Metropolis: 3.91175603867 seconds ---
+	---ExtWalk: 0.68278002739 seconds ---
+	82750.8293047
+	---ExtWalk: 0.645892858505 seconds ---
+	82750.8258311
+	---ExtWalk: 0.650175094604 seconds ---
+	82750.8323065
+	---ExtWalk: 0.664004802704 seconds ---
+	82750.8347909
+	---ExtWalk: 0.657527923584 seconds ---
+	82750.8354641
+	---ExtWalk: 0.637119054794 seconds ---
+	82750.8435604
+	---ExtWalk: 0.649234056473 seconds ---
+	82750.8486437
+	---ExtWalk: 0.654925823212 seconds ---
+	82750.8444891
+	---ExtWalk: 0.660565853119 seconds ---
+	82750.8539357
+	---ExtWalk: 0.636607170105 seconds ---
+	82750.852975
+	--- 49.7903909683 seconds ---
+
+	19 Particles w/Metropolis:
+	---Metropolis: 3.86872220039 seconds ---
+	---ExtWalk: 0.861124038696 seconds ---
+	82750.8342959
+	---ExtWalk: 0.718468904495 seconds ---
+	82750.8406815
+	---ExtWalk: 0.726253032684 seconds ---
+	82750.8392663
+	---ExtWalk: 0.801027059555 seconds ---
+	82750.8470585
+	---ExtWalk: 0.706191062927 seconds ---
+	82750.8469726
+	---ExtWalk: 0.731356143951 seconds ---
+	82750.8480035
+	---ExtWalk: 0.755708932877 seconds ---
+	82750.8482282
+	---ExtWalk: 0.844521999359 seconds ---
+	82750.8478429
+	---ExtWalk: 0.728219985962 seconds ---
+	82750.8473977
+	---ExtWalk: 0.743700027466 seconds ---
+	82750.8482569
+	--- 50.8431670666 seconds ---
+
+	20 Particles w/Metropolis:
+	---Metropolis: 3.82528305054 seconds ---
+	---ExtWalk: 0.796326875687 seconds ---
+	82750.8411659
+	---ExtWalk: 0.793274879456 seconds ---
+	82750.8480485
+	---ExtWalk: 0.808399915695 seconds ---
+	82750.8563968
+	---ExtWalk: 0.80717086792 seconds ---
+	82750.8641426
+	---ExtWalk: 0.808533906937 seconds ---
+	82750.8632834
+	---ExtWalk: 0.78937292099 seconds ---
+	82750.8624524
+	---ExtWalk: 0.799196004868 seconds ---
+	82750.8624077
+	---ExtWalk: 0.817354917526 seconds ---
+	82750.8546692
+	---ExtWalk: 0.789925098419 seconds ---
+	82750.8576639
+	---ExtWalk: 0.805410861969 seconds ---
+	82750.8597458
+	--- 50.3956491947 seconds ---
+	
+	21 Particles w/Metropolis:
+	---Metropolis: 3.82490491867 seconds ---
+	---ExtWalk: 0.878639936447 seconds ---
+	82750.8369791
+	---ExtWalk: 0.866391897202 seconds ---
+	82750.8322858
+	---ExtWalk: 0.866158008575 seconds ---
+	82750.8309503
+	---ExtWalk: 0.909593105316 seconds ---
+	82750.8342573
+	---ExtWalk: 0.876518011093 seconds ---
+	82750.8336252
+	---ExtWalk: 0.865674972534 seconds ---
+	82750.8363577
+	---ExtWalk: 0.966280937195 seconds ---
+	82750.8414248
+	---ExtWalk: 0.879622936249 seconds ---
+	82750.8434428
+	---ExtWalk: 0.886696100235 seconds ---
+	82750.8441559
+	---ExtWalk: 0.891844034195 seconds ---
+	82750.8502022
+	--- 51.4616689682 seconds ---
+
+	22 Particles w/Metropolis:
+	---Metropolis: 3.83657693863 seconds ---
+	---ExtWalk: 0.982688903809 seconds ---
+	82750.8457356
+	---ExtWalk: 0.973613023758 seconds ---
+	82750.8507217
+	---ExtWalk: 1.01495718956 seconds ---
+	82750.8499033
+	---ExtWalk: 0.955222845078 seconds ---
+	82750.8465145
+	---ExtWalk: 1.0986020565 seconds ---
+	82750.8574531
+	---ExtWalk: 1.10824489594 seconds ---
+	82750.8499501
+	---ExtWalk: 1.05089306831 seconds ---
+	82750.8496732
+	---ExtWalk: 1.00136494637 seconds ---
+	82750.8515845
+	---ExtWalk: 1.05799603462 seconds ---
+	82750.8482387
+	---ExtWalk: 1.05212688446 seconds ---
+	82750.8502126
+	--- 57.0213518143 seconds ---
+
+	23 Particles w/Metropolis:
+	---Metropolis: 3.79717516899 seconds ---
+	---ExtWalk: 1.06573486328 seconds ---
+	82750.8366889
+	---ExtWalk: 1.04434895515 seconds ---
+	82750.8296991
+	---ExtWalk: 1.07270407677 seconds ---
+	82750.8293044
+	---ExtWalk: 1.07452106476 seconds ---
+	82750.8268735
+	---ExtWalk: 1.04480600357 seconds ---
+	82750.8273466
+	---ExtWalk: 1.06751322746 seconds ---
+	82750.8303187
+	---ExtWalk: 1.09624695778 seconds ---
+	82750.8333721
+	---ExtWalk: 1.10394001007 seconds ---
+	82750.8309672
+	---ExtWalk: 1.08213496208 seconds ---
+	82750.8294119
+	---ExtWalk: 1.05229091644 seconds ---
+	82750.8264755
+	--- 52.5636229515 seconds ---
+
+	24 Particles w/Metropolis:
+	---Metropolis: 3.76468396187 seconds ---
+	---ExtWalk: 1.15362095833 seconds ---
+	82750.8342118
+	---ExtWalk: 1.14997982979 seconds ---
+	82750.8342753
+	---ExtWalk: 1.19059610367 seconds ---
+	82750.8355752
+	---ExtWalk: 1.15316605568 seconds ---
+	82750.8346992
+	---ExtWalk: 1.23288011551 seconds ---
+	82750.8379744
+	---ExtWalk: 1.16026186943 seconds ---
+	82750.8408299
+	---ExtWalk: 1.14377999306 seconds ---
+	82750.8464688
+	---ExtWalk: 1.16019892693 seconds ---
+	82750.8435884
+	---ExtWalk: 1.20840120316 seconds ---
+	82750.8359934
+	---ExtWalk: 1.1626200676 seconds ---
+	82750.8346277
+	--- 54.0446681976 seconds ---
+
+	25 Particles w/Metropolis:
+	---Metropolis: 3.76232409477 seconds ---
+	---ExtWalk: 1.24259805679 seconds ---
+	82750.848808
+	---ExtWalk: 1.23278808594 seconds ---
+	82750.854536
+	---ExtWalk: 1.2443010807 seconds ---
+	82750.8528267
+	---ExtWalk: 1.24619603157 seconds ---
+	82750.8524046
+	---ExtWalk: 1.25001001358 seconds ---
+	82750.8487094
+	---ExtWalk: 1.31882214546 seconds ---
+	82750.8485677
+	---ExtWalk: 1.25701403618 seconds ---
+	82750.8501628
+	---ExtWalk: 1.24568104744 seconds ---
+	82750.8477584
+	---ExtWalk: 1.25222420692 seconds ---
+	82750.8479527
+	---ExtWalk: 1.26217198372 seconds ---
+	82750.8441468
+	--- 54.369385004 seconds ---
+	
+	26 Particles w/Metropolis:
+	---Metropolis: 4.763215065 seconds ---
+	---ExtWalk: 1.34948015213 seconds ---
+	82750.8387477
+	---ExtWalk: 1.5934419632 seconds ---
+	82750.8383347
+	---ExtWalk: 1.69182801247 seconds ---
+	82750.8296418
+	---ExtWalk: 1.60800695419 seconds ---
+	82750.8313715
+	---ExtWalk: 1.64675307274 seconds ---
+	82750.8299802
+	---ExtWalk: 1.61476588249 seconds ---
+	82750.8279015
+	---ExtWalk: 1.69176506996 seconds ---
+	82750.8292233
+	---ExtWalk: 1.4053800106 seconds ---
+	82750.8260454
+	---ExtWalk: 1.70799708366 seconds ---
+	82750.8243983
+	---ExtWalk: 1.60843086243 seconds ---
+	82750.8144824
+	--- 69.1954109669 seconds ---
+
+	27 Particles w/Metropolis:
+	---Metropolis: 3.82525706291 seconds ---
+	---ExtWalk: 1.46421194077 seconds ---
+	82750.8529733
+	---ExtWalk: 1.47623896599 seconds ---
+	82750.8577969
+	---ExtWalk: 1.45227789879 seconds ---
+	82750.8546031
+	---ExtWalk: 1.5292339325 seconds ---
+	82750.8559056
+	---ExtWalk: 1.50231099129 seconds ---
+	82750.8583861
+	---ExtWalk: 1.52038383484 seconds ---
+	82750.8665411
+	---ExtWalk: 1.5099029541 seconds ---
+	82750.8656088
+	---ExtWalk: 1.47121119499 seconds ---
+	82750.8671797
+	---ExtWalk: 1.49169707298 seconds ---
+	82750.8697625
+	---ExtWalk: 1.49850583076 seconds ---
+	82750.8703596
+	--- 57.8902020454 seconds ---
+	
+	28 Particles w/Metropolis:
+	---Metropolis: 3.9946911335 seconds ---
+	---ExtWalk: 1.59014010429 seconds ---
+	82750.8423469
+	---ExtWalk: 1.5874171257 seconds ---
+	82750.8489986
+	---ExtWalk: 1.60643100739 seconds ---
+	82750.8496647
+	---ExtWalk: 1.77207708359 seconds ---
+	82750.8495484
+	---ExtWalk: 1.5768828392 seconds ---
+	82750.8499984
+	---ExtWalk: 1.7757499218 seconds ---
+	82750.8574386
+	---ExtWalk: 1.55609297752 seconds ---
+	82750.8607705
+	---ExtWalk: 1.59076595306 seconds ---
+	82750.8666705
+	---ExtWalk: 1.55518507957 seconds ---
+	82750.8675641
+	---ExtWalk: 1.5446100235 seconds ---
+	82750.8684447
+	--- 59.4405179024 seconds ---	
+
+	29 Particles w/Metropolis:
+	---Metropolis: 3.77399206161 seconds ---
+	---ExtWalk: 1.65220499039 seconds ---
+	82750.8391913
+	---ExtWalk: 1.69956898689 seconds ---
+	82750.8418362
+	---ExtWalk: 1.70380711555 seconds ---
+	82750.8412606
+	---ExtWalk: 1.71297121048 seconds ---
+	82750.8307098
+	---ExtWalk: 1.6777009964 seconds ---
+	82750.836998
+	---ExtWalk: 1.70003604889 seconds ---
+	82750.8369517
+	---ExtWalk: 1.68436980247 seconds ---
+	82750.8327543
+	---ExtWalk: 1.6764318943 seconds ---
+	82750.8354681
+	---ExtWalk: 1.7054271698 seconds ---
+	82750.8359034
+	---ExtWalk: 1.71017503738 seconds ---
+	82750.8349644
+	--- 60.7039170265 seconds ---
+	
+	30 Particles w/Metropolis:
+	---Metropolis: 3.98993301392 seconds ---
+	---ExtWalk: 1.78899407387 seconds ---
+	82750.8400987
+	---ExtWalk: 1.85430407524 seconds ---
+	82750.8462094
+	---ExtWalk: 1.80128598213 seconds ---
+	82750.8537911
+	---ExtWalk: 1.80903100967 seconds ---
+	82750.8513466
+	---ExtWalk: 1.79712486267 seconds ---
+	82750.8492618
+	---ExtWalk: 1.8838429451 seconds ---
+	82750.8484015
+	---ExtWalk: 1.90532302856 seconds ---
+	82750.8504783
+	---ExtWalk: 1.83837890625 seconds ---
+	82750.857125
+	---ExtWalk: 1.76773500443 seconds ---
+	82750.8593399
+	---ExtWalk: 1.7802798748 seconds ---
+	82750.8620603
+	--- 61.7673609257 seconds ---	
+
+	50 Particles w/Metropolis:
+	---Metropolis: 37.6961891651 seconds ---
+	---ExtWalk: 5.8559088707 seconds ---
+	121187.296898
+	--- 88.9478440285 seconds ---
+---------------------------------------------------------------------------------------------
+
+	16 Particles w/Descent:
+	---Walk3: 7.21294212341 seconds ---
+	---ExtWalk: 0.513928890228 seconds ---
+	---Walk3: 35.9786748886 seconds ---
+	-0.295512188798
+	--- 43.7057290077 seconds ---
+	
+	17 Particles w/Descent:
+	---Walk3: 8.06654810905 seconds ---
+	---ExtWalk: 0.587646007538 seconds ---
+	---Walk3: 42.5651080608 seconds ---
+	-0.27980812047
+	--- 51.2261199951 seconds ---
+	
+	18 Particles w/Descent:
+	---Walk3: 9.88623595238 seconds ---
+	---ExtWalk: 0.668071985245 seconds ---
+	---Walk3: 47.201364994 seconds ---
+	-0.351290553997
+	--- 57.7559280396 seconds --
+
+	19 Particles w/Descent:
+	---Walk3: 9.86600518227 seconds ---
+	---ExtWalk: 0.729536056519 seconds ---
+	---Walk3: 53.0681889057 seconds ---
+	-0.842516288412
+	--- 63.6639308929 seconds ---
+
+	20 Particles w/Descent:
+	---Walk3: 11.1189448833 seconds ---
+	---ExtWalk: 0.777812004089 seconds ---
+	---Walk3: 59.6393811703 seconds ---
+	-0.345501081669
+	--- 71.5363409519 seconds ---
+
+	21 Particles w/Descent:
+	---Walk3: 12.6696751118 seconds ---
+	---ExtWalk: 0.847872018814 seconds ---
+	---Walk3: 62.8276209831 seconds ---
+	-0.718376324657
+	--- 76.3454420567 seconds ---
+
+	22 Particles w/Descent:
+	---Walk3: 14.6576290131 seconds ---
+	---ExtWalk: 1.32189702988 seconds ---
+	---Walk3: 75.1322481632 seconds ---
+	-1.04301587163
+	--- 91.1120610237 seconds ---
+
+	23 Particles w/Descent:
+	---Walk3: 15.8848359585 seconds ---
+	---ExtWalk: 1.03056907654 seconds ---
+	---Walk3: 76.7190051079 seconds ---
+	-1.15540209875
+	--- 93.6346800327 seconds ---
+	
+	24 Particles w/Descent:
+	---Walk3: 16.8670699596 seconds ---
+	---ExtWalk: 1.33109617233 seconds ---
+	---Walk3: 88.8751251698 seconds ---
+	-0.629700713842
+	--- 107.073570967 seconds ---
+
+	25 Particles w/Descent:
+	---Walk3: 18.2998728752 seconds ---
+	---ExtWalk: 1.22953510284 seconds ---
+	---Walk3: 98.2435538769 seconds ---
+	-1.98464676745
+	--- 117.797856092 seconds ---
+
+	26 Particles w/Descent:
+	---Walk3: 20.0096030235 seconds ---
+	---ExtWalk: 1.48760604858 seconds ---
+	---Walk3: 107.999483109 seconds ---
+	-1.14287791963
+	--- 129.497008085 seconds ---
+
+	27 Particles w/Descent:
+	---Walk3: 22.5845961571 seconds ---
+	---ExtWalk: 1.44623494148 seconds ---
+	---Walk3: 156.220211029 seconds ---
+	-0.966028366508
+	--- 180.251416922 seconds ---
+
+	28 Particles w/Descent:
+	---Walk3: 34.935655117 seconds ---
+	---ExtWalk: 2.32709598541 seconds ---
+	---Walk3: 156.067667007 seconds ---
+	-2.89117374333
+	--- 193.330844879 seconds ---
+
+	29 Particles w/Descent:
+	---Walk3: 50.0550980568 seconds ---
+	---ExtWalk: 3.37982296944 seconds ---
+	---Walk3: 197.544323206 seconds ---
+	-1.65537719912
+	--- 250.980408192 seconds ---
+
+	30 Particles w/Descent:
+	---Walk3: 53.4738419056 seconds ---
+	---ExtWalk: 2.67632889748 seconds ---
+	---Walk3: 241.859369993 seconds ---
+	-2.15734549818
+	--- 298.00999403 seconds ---
+
+	50 Particles w/Descent:
+	---Walk3: 70.4044349194 seconds ---
+	---ExtWalk: 5.01124382019 seconds ---
+	---Walk3: 383.003612041 seconds ---
+	-2.2282321182
+	--- 458.420077085 seconds ---
+
+---------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
+
+Time Log for Metropolis:
+
+	16 Particles:
+	---Metropolis: 6.91315293312 seconds ---
+
+	17 Particles:
+	---Metropolis: 6.7262980938 seconds ---
+	
+	18 Particles:
+	---Metropolis: 8.13428211212 seconds ---
+	
+	19 Particles:
+	---Metropolis: 8.93886995316 seconds ---
+
+	20 Particles:
+	---Metropolis: 10.7181310654 seconds ---
+
+	21 Particles:
+	---Metropolis: 12.0650889874 seconds ---
+
+	22 Particles:
+	---Metropolis: 11.9339380264 seconds ---
+
+	23 Particles:
+	---Metropolis: 12.5721781254 seconds ---
+	
+	24 Particles:
+	---Metropolis: 12.4877369404 seconds ---
+	
+	25 Particles:
+	---Metropolis: 15.0203330517 seconds ---
+	
+	26 Particles:
+	---Metropolis: 16.1617259979 seconds ---
+
+	27 Particles:
+	---Metropolis: 17.4296579361 seconds ---
+	
+	28 Particles:
+	---Metropolis: 18.4210488796 seconds ---
+
+	29 Particles:
+	---Metropolis: 16.724216938 seconds ---
+
+	30 Particles:
+	---Metropolis: 18.5336351395 seconds ---
+	
+	50 Particles:
+	---Metropolis: 37.9333460331 seconds ---
+		
+	
+	
+	

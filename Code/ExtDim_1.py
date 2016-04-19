@@ -180,7 +180,7 @@ def extWalk(cycleNum): #add minimum parameter
                 
         nEn = 0
         for p in xrange(1, numPart+1):
-            for q in xrange(k+1, numPart+1):
+            for q in xrange(p+1, numPart+1):
                 nEn += LJ(currDist[str(p) + " and " + str(q)])
                 
         enDiff = nEn - en

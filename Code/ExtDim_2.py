@@ -8,6 +8,7 @@ Created on Fri Apr 15 09:13:04 2016
 from math import exp, sqrt
 import numpy as np
 import random
+import time
 
 def LJ(coord1, coord2):
     # v = 4 * epsilon * ((sigma/r)^12 - (sigma/r)^6)
@@ -187,6 +188,12 @@ def extension():
         partList[j].tempPos.append(0)
         partList[j].nPos.append(0)
         
+def rExtension():
+    for k in range(numPart):
+        del partList[k].pos[-1]
+        del partList[k].tempPos[-1]
+        del partList[k].nPos[-1]
+        
 def set3d():
     for p in xrange(0, numPart):
         for c in xrange(3):
@@ -205,15 +212,45 @@ def perpVect(step, v):
         else:
             v4 = list(np.cross(v, [0, r, 0]))
             v4.append(v3)
-            print(v4)
+            v.append(v3)
+            #print(v4)
             return v4
     c = random.randint(0, 2)
     nV = [0, 0, 0]
     nV[c] = r        
     v4 = list(np.cross(v, nV))
-    print(v4)
+    #print(v4)
     v4.append(v3)
+    v.append(v3)
     return v4
+    
+
+def find3DEnergy():
+    e0 = 0
+    
+    for v in partList:
+        for w in xrange(v.num+1, numPart+1):
+            dist = distance4(v.pos3, partList[w-1].pos3)
+            e0 += LJ2(dist)
+    return e0
+
+def gradFX():
+    
+    e0 = find3DEnergy()
+    gF = []
+    
+    return
+        
+
+def compression():
+    
+    success = False
+    
+    
+        
+                
+    
+    return success
     
 
 def gradientDescent(coord1, coord2, numCycle):
@@ -241,7 +278,7 @@ def gradientDescent(coord1, coord2, numCycle):
     
 
 def walk3(cycleNum):
-    
+    start_time = time.time()
     en = 0
     energy = []
     count = 0
@@ -270,9 +307,17 @@ def walk3(cycleNum):
     enTotal = 0
     for e in energy:
         enTotal += e
+
+    for r in partList:
+        for s in xrange(r.num+1, numPart+1):
+            r.pos = list(currDist[str(r.num) + " and " + str(s)])  
+    
+    print("---Walk3: %s seconds ---" % (time.time() - start_time))
+            
     return enTotal
 
 def extWalk(cycleNum):
+    start_time = time.time()
     
     count = 0
     aCount = 0
@@ -295,28 +340,28 @@ def extWalk(cycleNum):
                 en += LJ2(initDist[str(k) + " and " + str(l)])
                 
         for r in partList:
-            r.tempPos = list(r.pos)                
-                
+            r.tempPos = list(r.pos)
+            
         for m in partList:
-            print(m.pos)
-            pV = list(perpVect(step, m.pos))
-            print(pV)
-            print(m.nPos)
+            gE = [0, 0, 0, 0]
+            for t in xrange(m.num+1, numPart+1):
+                gEp = grad4LJ(m.pos, partList[t-1].pos)
+                for u in range(4):
+                    gE[u] += gEp[u]
+            pV = list(perpVect(step, gE))
             for s in range(4):
-                m.nPos[s] = m.pos[s] + pV[s]               
-                print(s)
-            #m.nPos = [m.pos[i] + pV[i] for i in range(len(m.pos))]
-            print(m.nPos)
+                m.nPos[s] = m.pos[s] + pV[s]
             for n in xrange(m.num+1, numPart+1):
                 currDist[str(m.num) + " and " + str(n)] = distance4(m.nPos, partList[n-1].tempPos)
             m.tempPos = list(m.nPos)
+        
                 
         nEn = 0
         for p in xrange(1, numPart+1):
-            for q in xrange(k+1, numPart+1):
+            for q in xrange(p+1, numPart+1):
                 nEn += LJ2(currDist[str(p) + " and " + str(q)])
         
-        print("En ", en, "nEn", nEn)
+        #print("En ", en, "nEn", nEn)
         enDiff = nEn - en              
                 
         t = transition(enDiff)
@@ -334,11 +379,12 @@ def extWalk(cycleNum):
                          
              
         count += 1
-        print(count)
-        #print(aCount)
     
+    #print("aCount: ", aCount)
+    print("---ExtWalk: %s seconds ---" % (time.time() - start_time))
     return en
     
+start_time = time.time()
 
 partList = []
 numPart = 16
@@ -349,15 +395,21 @@ for i in range(numPart):
     partList[i].pos[(partList[i].num-1)%3] = i+1    
     #print("Particle ", i+1, ":", partList[i].pos)
 
+count = 10
+cycleNum = 0
+
+
 walk3(100)
-set3d()
-extension()
-print(extWalk(100))
+while cycleNum < count:
 
+        set3d()
+        extension()
+        extWalk(100)
+        rExtension()
+        print(walk3(100))
+        
+        cycleNum += 1
 
-# Particle positions not being changed after steepest descent function called
-# - only being stored in dictionaries, not actually changed.
+print("--- %s seconds ---" % (time.time() - start_time))
+
 # Need to write compression function
-# Find out why line 306 keeps causing index out of range
-# ...why does print(m.nPos) and print(m.pos) print the same thing?
-

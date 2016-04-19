@@ -97,6 +97,8 @@ def Metropolis(cycleNum):
     energy = []
         
     while count < cycleNum:
+        
+        mEn=0
         # Calculate the initial distance between the particles
         r12 = distance(p1.pos, p2.pos)
         r13 = distance(p1.pos, p3.pos)
@@ -106,7 +108,9 @@ def Metropolis(cycleNum):
         en = LJ(r12) + LJ(r13) + LJ(r23)
         #print("en: ", en)
         if count == 0:
-            energy.append(en)        
+            energy.append(en)  
+            
+        mEn = en
         
         p = random.randint(1,3)
         
@@ -134,6 +138,7 @@ def Metropolis(cycleNum):
             p2.pos = p2.nPos
             p3.pos = p3.nPos
             energy.append(nEn)
+            mEn = en
             aCount += 1
             
         else:
@@ -150,6 +155,7 @@ def Metropolis(cycleNum):
         enTotal += en
     avgEn = enTotal/cycleNum
     print("The average energy was: ", avgEn)
+    print("The minimum energy was: ", mEn)
     #print("The number of accepted moves was: ", aCount)
     #print("The ratio of acceptance was: ", aCount/cycleNum)
     return avgEn

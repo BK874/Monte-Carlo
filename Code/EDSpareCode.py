@@ -29,4 +29,11 @@ for i in partList:
                 initDist[str(i.num) + " and " + str(partList[j].num)] = distance4(i.pos, partList[j].pos)
                 #print("Distance between ", partList.index(i)+1, "and ", j+1)
                 #print(initDist[str(i.num) + " and " + str(partList[j].num)])
-        
+# ExteDim_2 moving particles perpendicular to gradient of energy        
+for m in partList:
+            pV = list(perpVect(step, m.pos))
+            for s in range(4):
+                m.nPos[s] = m.pos[s] + pV[s]
+            for n in xrange(m.num+1, numPart+1):
+                currDist[str(m.num) + " and " + str(n)] = distance4(m.nPos, partList[n-1].tempPos)
+            m.tempPos = list(m.nPos)
